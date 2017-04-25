@@ -28,6 +28,7 @@ public class EvaluatorTest {
     }
 
     @Test
+<<<<<<< HEAD
     public void RANK가_같은_카드가_2쌍이면_투페어다() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
@@ -67,3 +68,29 @@ public class EvaluatorTest {
         assertThat(result, is("STRAIGHT"));
     }
 }
+=======
+    public void RANK가_4개가동일하면_포카드다() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(4,Suit.CLUBS),
+                new Card(4,Suit.DIAMONDS),
+                new Card(4,Suit.HEARTS),
+                new Card(6,Suit.HEARTS),
+                new Card(4,Suit.SPADES)
+        );
+        String result = evaluator.evaluate(cardList);
+        assertThat(result, is("FOURCARD"));
+    }
+
+    @Test
+    public void RANK_2개가_동일하면_원페어(){
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(3, Suit.HEARTS),
+                new Card(3, Suit.DIAMONDS)
+        );
+        String result = evaluator.evaluate(cardList);
+        assertThat(result, is("ONEPAIR"));
+    }
+}
+>>>>>>> master
