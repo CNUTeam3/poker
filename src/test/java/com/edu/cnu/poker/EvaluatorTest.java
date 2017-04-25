@@ -13,7 +13,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
  */
 public class EvaluatorTest {
     @Test
-    public void SUIT가_같은_AKQJ10은_로열스트레이트플러쉬이다() {
+    public void SUIT가_같은_AKQJ10은_로열스트레이트플러쉬() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
                 new Card(1, Suit.CLUBS),
@@ -22,22 +22,30 @@ public class EvaluatorTest {
                 new Card(12, Suit.CLUBS),
                 new Card(13, Suit.CLUBS)
         );
-        String result = evaluator.evaluate(cardList);
-        assertThat(result, is("ROALSTRAIGHTFLUSH"));
+        Genealogy result = evaluator.evaluate(cardList);
+        assertThat(result, is(Genealogy.ROALSTRAIGHTFLUSH));
     }
 
     @Test
-    public void 백스트레이트플러쉬() {
-
+    public void 같은_SUIT의_CARD가_A부터5까지면_백스트레이트플러쉬() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+        );
+        Genealogy result = evaluator.evaluate(cardList);
+        assertThat(result, is(Genealogy.BACKSTRAIGHTFLUSH));
     }
 
     @Test
-    public void 스트레이트플러쉬() {
-
+    public void 같은_SUIT의_5개의_연속된_숫자면_스트레이트플러쉬() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+        );
+        Genealogy result = evaluator.evaluate(cardList);
+        assertThat(result, is(Genealogy.STRAIGHTFLUSH));
     }
 
     @Test
-    public void RANK가_4개가동일하면_포카드다() {
+    public void RANK가_4개가동일하면_포카드() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
                 new Card(4, Suit.CLUBS),
@@ -46,8 +54,8 @@ public class EvaluatorTest {
                 new Card(6, Suit.HEARTS),
                 new Card(4, Suit.SPADES)
         );
-        String result = evaluator.evaluate(cardList);
-        assertThat(result, is("FOURCARD"));
+        Genealogy result = evaluator.evaluate(cardList);
+        assertThat(result, is(Genealogy.FOUROFAKIND));
     }
 
     @Test
@@ -65,8 +73,8 @@ public class EvaluatorTest {
                 new Card(13, Suit.CLUBS),
                 new Card(2, Suit.CLUBS)
         );
-        String result = evaluator.evaluate(cardList);
-        assertThat(result, is("FLUSH"));
+        Genealogy result = evaluator.evaluate(cardList);
+        assertThat(result, is(Genealogy.FLUSH));
     }
 
     @Test
@@ -79,18 +87,22 @@ public class EvaluatorTest {
                 new Card(11, Suit.HEARTS),
                 new Card(10, Suit.SPADES)
         );
-        String result = evaluator.evaluate(cardList);
-        assertThat(result, is("MOUNTAIN"));
+        Genealogy result = evaluator.evaluate(cardList);
+        assertThat(result, is(Genealogy.MOUNTAIN));
     }
 
     @Test
-    public void 백스트레이트() {
-
+    public void 같은_SUIT의_카드가_A부터5까지면_백스트레이트() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+        );
+        Genealogy result = evaluator.evaluate(cardList);
+        assertThat(result, is(Genealogy.BACKSTRAIGHT));
     }
 
 
     @Test
-    public void RANK가_연달아_3장의_카드가_존재하면_스트레이트이다() {
+    public void RANK가_연달아_3장의_카드가_존재하면_스트레이트() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
                 new Card(4, Suit.SPADES),
@@ -99,24 +111,24 @@ public class EvaluatorTest {
                 new Card(7, Suit.HEARTS),
                 new Card(8, Suit.SPADES)
         );
-        String result = evaluator.evaluate(cardList);
-        assertThat(result, is("STRAIGHT"));
+        Genealogy result = evaluator.evaluate(cardList);
+        assertThat(result, is(Genealogy.STRAIGHT));
     }
 
     @Test
-    public void RANK가_같은_카드가_3장이면_트리플이다() {
+    public void RANK가_같은_카드가_3장이면_트리플() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
                 new Card(1, Suit.SPADES),
                 new Card(1, Suit.CLUBS),
                 new Card(1, Suit.HEARTS)
         );
-        String result = evaluator.evaluate(cardList);
-        assertThat(result, is("TRIPPLE"));
+        Genealogy result = evaluator.evaluate(cardList);
+        assertThat(result, is(Genealogy.TRIPLE));
     }
 
     @Test
-    public void RANK가_같은_카드가_2쌍이면_투페어다() {
+    public void RANK가_같은_카드가_2쌍이면_투페어() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
                 new Card(1, Suit.SPADES),
@@ -124,8 +136,8 @@ public class EvaluatorTest {
                 new Card(2, Suit.DIAMONDS),
                 new Card(2, Suit.HEARTS)
         );
-        String result = evaluator.evaluate(cardList);
-        assertThat(result, is("TWOPAIR"));
+        Genealogy result = evaluator.evaluate(cardList);
+        assertThat(result, is(Genealogy.TWOPAIR));
     }
 
     @Test
@@ -135,7 +147,7 @@ public class EvaluatorTest {
                 new Card(3, Suit.HEARTS),
                 new Card(3, Suit.DIAMONDS)
         );
-        String result = evaluator.evaluate(cardList);
-        assertThat(result, is("ONEPAIR"));
+        Genealogy result = evaluator.evaluate(cardList);
+        assertThat(result, is(Genealogy.ONEPAIR));
     }
 }
