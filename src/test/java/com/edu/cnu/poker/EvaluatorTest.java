@@ -124,6 +124,11 @@ public class EvaluatorTest {
     public void RANK가_연달아_3장의_카드가_존재하면_스트레이트() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
+                new Card(4, Suit.SPADES),
+                new Card(5, Suit.CLUBS),
+                new Card(6, Suit.SPADES),
+                new Card(7, Suit.HEARTS),
+                new Card(8, Suit.SPADES)
         );
         Genealogy result = evaluator.evaluate(cardList);
         assertThat(result, is(Genealogy.STRAIGHT));
