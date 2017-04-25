@@ -90,10 +90,10 @@ public class Evaluator {
                 count++;
             }
         }
-        if (count == 1)
-            return Genealogy.ONEPAIR;
-        else if (count == 2)
+        if (count == 2)
             return Genealogy.TWOPAIR;
+        else if (count == 2)
+            return Genealogy.ONEPAIR;
         return Genealogy.NOTTING;
     }
 
