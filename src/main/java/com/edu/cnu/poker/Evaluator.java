@@ -23,9 +23,30 @@ public class Evaluator {
             }
         }
 
-<<<<<<< HEAD
+        for (Suit key : tempMap.keySet()){
+            int count = 0;
+            if(tempMap.get(key) != 5)
+                break;
+            for (Card card : cardList){
+                if (card.getRank() == 1)
+                    count++;
+                if (card.getRank() == 10)
+                    count++;
+                if (card.getRank() == 11)
+                    count++;
+                if (card.getRank() == 12)
+                    count++;
+                if (card.getRank() == 13)
+                    count++;
+                if (count == 5)
+                    return "ROALSTRAIGHTFLUSH";
+            }
+        }
+
+
+
         for(Card card : cardList){
-=======
+
         for (Suit key : tempMap.keySet()) {
             if (tempMap.get(key) == 5) {
                 return "FLUSH";
@@ -34,7 +55,6 @@ public class Evaluator {
 
 
         for (Card card : cardList) {
->>>>>>> eefc70f2fdb04df0d7d1230291ddc59b37a44bde
             if (tempMap2.containsKey(card.getRank())) {
                 Integer count = tempMap2.get(card.getRank());
                 count = new Integer(count.intValue() + 1);
@@ -43,7 +63,27 @@ public class Evaluator {
                 tempMap2.put(card.getRank(), new Integer(1));
             }
         }
+        for (Suit key : tempMap.keySet()) {
+            int count = 0;
+            if (tempMap.get(key) != 5)
+                for (Card card : cardList) {
+                    if (card.getRank() == 1)
+                        count++;
+                    if (card.getRank() == 10)
+                        count++;
+                    if (card.getRank() == 11)
+                        count++;
+                    if (card.getRank() == 12)
+                        count++;
+                    if (card.getRank() == 13)
+                        count++;
+                    if (count == 5)
+                        return "MOUNTAIN";
+                }
+        }
 
+
+        int count = 0;
         for (Suit key : tempMap.keySet()){
             int count = 0;
             if(tempMap.get(key) != 5)
@@ -76,14 +116,14 @@ public class Evaluator {
             } else if (tempMap2.get(key) == 3) {
                 return "TRIPPLE";
             } else if (tempMap2.get(key) == 2) {
-                for (Integer key2 : tempMap2.keySet()) {
-                    if (tempMap2.get(key2) == 2)
-                        return "TWOPAIR";
-                }
-                return "ONEPAIR";
+                count++;
             }
         }
-<<<<<<< HEAD
+        if (count == 1)
+            return "ONEPAIR";
+        else if (count == 2)
+            return "TWOPAIR";
+
 
         for (Integer integer : tempMap2.keySet()){
             int count = 0;
@@ -95,10 +135,6 @@ public class Evaluator {
                 return "FULLHOUSE";
         }
 
-
-
-=======
->>>>>>> eefc70f2fdb04df0d7d1230291ddc59b37a44bde
         return "NOTHING";
     }
 
