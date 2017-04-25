@@ -56,7 +56,10 @@ public class Evaluator {
             if (tempMap2.get(key) == 4) {
                 return Genealogy.FOUROFAKIND;
             } else if (tempMap2.get(key) == 3) {
-
+                for (Integer integer : tempMap2.keySet()) {
+                    if (tempMap2.get(integer) == 2)
+                        return Genealogy.FULLHOUSE;
+                }
                 return Genealogy.TRIPLE;
             } else if (tempMap2.get(key) == 2) {
                 count++;
