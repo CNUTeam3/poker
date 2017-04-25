@@ -39,20 +39,21 @@ public class Evaluator {
                 tempMap2.put(card.getRank(), new Integer(1));
             }
         }
-
+        int count = 0;
         for (Integer key : tempMap2.keySet()) {
             if (tempMap2.get(key) == 4) {
                 return "FOURCARD";
             } else if (tempMap2.get(key) == 3) {
                 return "TRIPPLE";
             } else if (tempMap2.get(key) == 2) {
-                for (Integer key2 : tempMap2.keySet()) {
-                    if (tempMap2.get(key2) == 2)
-                        return "TWOPAIR";
-                }
-                return "ONEPAIR";
+                count++;
             }
         }
+        if (count == 1)
+            return "ONEPAIR";
+        else if (count == 2)
+            return "TWOPAIR";
+
         return "NOTHING";
     }
 
