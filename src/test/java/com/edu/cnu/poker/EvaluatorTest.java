@@ -26,4 +26,17 @@ public class EvaluatorTest {
         String result = evaluator.evaluate(cardList);
         assertThat(result, is("FLUSH"));
     }
+    @Test
+    public void RANK가_4개가동일하면_포카드다() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(4,Suit.CLUBS),
+                new Card(4,Suit.DIAMONDS),
+                new Card(4,Suit.HEARTS),
+                new Card(6,Suit.HEARTS),
+                new Card(4,Suit.SPADES)
+        );
+        String result = evaluator.evaluate(cardList);
+        assertThat(result, is("FOURCARD"));
+    }
 }
