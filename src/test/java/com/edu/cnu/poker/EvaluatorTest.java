@@ -110,4 +110,18 @@ public class EvaluatorTest {
         String result = evaluator.evaluate(cardList);
         assertThat(result, is("FULLHOUSE"));
     }
+
+    @Test
+    public void SUIT가_같은_AKQJ10은_로열스트레이트플러쉬이다(){
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(1,Suit.CLUBS),
+                new Card(10,Suit.CLUBS),
+                new Card(11,Suit.CLUBS),
+                new Card(12,Suit.CLUBS),
+                new Card(13,Suit.CLUBS)
+        );
+        String result = evaluator.evaluate(cardList);
+        assertThat(result, is("ROALSTRAIGHTFLUSH"));
+    }
   }
