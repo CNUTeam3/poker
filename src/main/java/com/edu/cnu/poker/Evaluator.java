@@ -50,6 +50,9 @@ public class Evaluator {
                     return Genealogy.ROALSTRAIGHTFLUSH;
             }
         }
+
+
+
         for (Suit key : tempMap.keySet()){
             count = 0;
             if(tempMap.get(key) != 5)
@@ -68,6 +71,24 @@ public class Evaluator {
                 if (count == 5)
                     return Genealogy.BACKSTRAIGHTFLUSH;
             }
+        }
+        for (Suit key : tempMap.keySet()){
+            int index = 0;
+            int check = 0;
+            int[] arr = new int[5];
+            if(tempMap.get(key) != 5)
+                break;
+            for (Card card : cardList)
+                arr[index++] = card.getRank();
+            Arrays.sort(arr);
+            for (int i=0; i<arr.length - 1;i++){
+                if (arr[i]+1 == (arr[i+1]))
+                    check++;
+                else
+                    break;
+            }
+            if (check == 4)
+                return Genealogy.STRAIGHTFLUSH;
         }
         count = 0;
         for (Integer key : tempMap2.keySet()) {
