@@ -30,8 +30,9 @@ public class Evaluator {
                 tempMap2.put(card.getRank(), new Integer(1));
             }
         }
+        int count;
         for (Suit key : tempMap.keySet()) {
-            int count = 0;
+            count = 0;
             if (tempMap.get(key) != 5)
                 break;
             for (Card card : cardList) {
@@ -49,7 +50,33 @@ public class Evaluator {
                     return Genealogy.ROALSTRAIGHTFLUSH;
             }
         }
-        int count = 0;
+        count = 0;
+        for (Integer integer : tempMap2.keySet()) {
+            if (tempMap2.get(integer) == 3)
+                count++;
+            else if (tempMap2.get(integer) == 2)
+                count++;
+            if (count== 2)
+                return Genealogy.FULLHOUSE;
+        }
+
+        count = 0;
+        for (Integer key : tempMap2.keySet()) {
+            if (tempMap2.get(key) == 4) {
+                return Genealogy.FOUROFAKIND;
+            } else if (tempMap2.get(key) == 3) {
+
+                return Genealogy.TRIPLE;
+            } else if (tempMap2.get(key) == 2) {
+                count++;
+            }
+        }
+        if (count == 2)
+            return Genealogy.TWOPAIR;
+        else if (count == 1)
+            return Genealogy.ONEPAIR;
+
+        count = 0;
         for (Card card : cardList) {
             if (card.getRank() == 1)
                 count++;
@@ -64,6 +91,7 @@ public class Evaluator {
             if (count == 5)
                 return Genealogy.BACKSTRAIGHT;
         }
+
         for (Suit key : tempMap.keySet()) {
             if (tempMap.get(key) == 5) {
                 return Genealogy.FLUSH;
@@ -101,20 +129,10 @@ public class Evaluator {
                         return Genealogy.MOUNTAIN;
                 }
         }
-        count = 0;
-        for (Integer key : tempMap2.keySet()) {
-            if (tempMap2.get(key) == 4) {
-                return Genealogy.FOUROFAKIND;
-            } else if (tempMap2.get(key) == 3) {
-                return Genealogy.TRIPLE;
-            } else if (tempMap2.get(key) == 2) {
-                count++;
-            }
-        }
-        if (count == 2)
-            return Genealogy.TWOPAIR;
-        else if (count == 1)
-            return Genealogy.ONEPAIR;
+
+
+
+
         return Genealogy.NOTTING;
     }
 }
