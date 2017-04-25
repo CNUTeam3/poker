@@ -44,6 +44,11 @@ public class EvaluatorTest {
     public void 같은_SUIT의_5개의_연속된_숫자면_스트레이트플러쉬() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
+                new Card(4, Suit.CLUBS),
+                new Card(5, Suit.CLUBS),
+                new Card(6, Suit.CLUBS),
+                new Card(7, Suit.CLUBS),
+                new Card(8, Suit.CLUBS)
         );
         Genealogy result = evaluator.evaluate(cardList);
         assertThat(result, is(Genealogy.STRAIGHTFLUSH));
