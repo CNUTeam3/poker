@@ -49,6 +49,15 @@ public class Evaluator {
             }
         }
 
+        for (Integer integer : tempMap2.keySet()){
+            int count = 0;
+            if(tempMap2.get(integer)==3)
+                count++;
+            if(tempMap2.get(integer)==2)
+                count++;
+            if(count == 2)
+                return "FULLHOUSE";
+        }
         return "NOTHING";
     }
 
