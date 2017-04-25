@@ -44,6 +44,9 @@ public class Evaluator {
             if (tempMap2.get(key) == 4) {
                 return "FOURCARD";
             }
+            else if (tempMap2.get(key) == 3) {
+                return "TRIPPLE";
+            }
             else if (tempMap2.get(key) == 2) {
                 return "ONEPAIR";
             }
