@@ -26,4 +26,8 @@ public class EvaluatorTest {
         String result = evaluator.evaluate(cardList);
         assertThat(result, is("FLUSH"));
     }
+
+    @Test
+    public void RANK_2개가_동일하면_원페어(){
+    }
 }

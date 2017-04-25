@@ -26,6 +26,8 @@ public class Evaluator {
                 return "FLUSH";
             }
         }
+
+
         return "NOTHING";
     }
 }
