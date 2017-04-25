@@ -31,9 +31,20 @@ public class EvaluatorTest {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
                 new Card(1,Suit.SPADES),
-                new Card(2,Suit.SPADES),
-                new Card(3,Suit.HEARTS),
-                new Card(4,Suit.HEARTS)
+                new Card(1,Suit.CLUBS),
+                new Card(2,Suit.DIAMONDS),
+                new Card(2,Suit.HEARTS)
+        );
+        String result = evaluator.evaluate(cardList);
+        assertThat(result, is("TWOPAIR"));
+    }
+    @Test
+    public  void RANK가_같은_카드가_3장이면_트리플이다(){
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+                new Card(1,Suit.SPADES),
+                new Card(1,Suit.CLUBS),
+                new Card(1,Suit.DIAMONDS)
         );
         String result = evaluator.evaluate(cardList);
         assertThat(result, is("TWOPAIR"));
