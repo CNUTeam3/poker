@@ -29,6 +29,7 @@ public class Evaluator {
             }
         }
 
+
         for(Card card : cardList){
             if (tempMap2.containsKey(card.getRank())) {
                 Integer count = tempMap2.get(card.getRank() );
