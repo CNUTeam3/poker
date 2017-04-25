@@ -22,7 +22,25 @@ public class Evaluator {
                 tempMap.put(card.getSuit(), new Integer(1));
             }
         }
-
+        for (Suit key : tempMap.keySet()){
+            int count = 0;
+            if(tempMap.get(key) != 5)
+                break;
+            for (Card card : cardList){
+                if (card.getRank() == 1)
+                    count++;
+                if (card.getRank() == 10)
+                    count++;
+                if (card.getRank() == 11)
+                    count++;
+                if (card.getRank() == 12)
+                    count++;
+                if (card.getRank() == 13)
+                    count++;
+                if (count == 5)
+                    return "ROALSTRAIGHTFLUSH";
+            }
+        }
         for (Suit key : tempMap.keySet()) {
             if (tempMap.get(key) == 5) {
                 return "FLUSH";
