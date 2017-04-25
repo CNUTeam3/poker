@@ -114,6 +114,11 @@ public class EvaluatorTest {
     public void 카드가_A부터5까지면_백스트레이트() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
+                new Card(1, Suit.CLUBS),
+                new Card(2, Suit.SPADES),
+                new Card(3, Suit.HEARTS),
+                new Card(4, Suit.CLUBS),
+                new Card(5, Suit.DIAMONDS)
         );
         Genealogy result = evaluator.evaluate(cardList);
         assertThat(result, is(Genealogy.BACKSTRAIGHT));
