@@ -48,13 +48,28 @@ public class Evaluator {
                     return Genealogy.ROALSTRAIGHTFLUSH;
             }
         }
+        int count = 0;
+        for (Card card : cardList){
+            if (card.getRank() == 1)
+                count++;
+            if (card.getRank() == 2)
+                count++;
+            if (card.getRank() == 3)
+                count++;
+            if (card.getRank() == 4)
+                count++;
+            if (card.getRank() == 5)
+                count++;
+            if (count == 5)
+                return Genealogy.BACKSTRAIGHT;
+        }
         for (Suit key : tempMap.keySet()) {
             if (tempMap.get(key) == 5) {
                 return Genealogy.FLUSH;
             }
         }
         for (Suit key : tempMap.keySet()) {
-            int count = 0;
+            count = 0;
             if (tempMap.get(key) != 5)
                 for (Card card : cardList) {
                     if (card.getRank() == 1)
@@ -71,7 +86,7 @@ public class Evaluator {
                         return Genealogy.MOUNTAIN;
                 }
         }
-        int count = 0;
+        count = 0;
         for (Integer key : tempMap2.keySet()) {
             if (tempMap2.get(key) == 4) {
                 return Genealogy.FOUROFAKIND;
