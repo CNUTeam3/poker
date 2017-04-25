@@ -8,8 +8,10 @@ import java.util.Map;
  * Created by cse on 2017-04-17.
  */
 public class Evaluator {
+
     public String evaluate(List<Card> cardList) {
         Map<Suit, Integer> tempMap = new HashMap<Suit, Integer>();
+        Map<Integer, Integer> tempMap2 = new HashMap<Integer, Integer>();
 
         for (Card card : cardList) {
             if (tempMap.containsKey(card.getSuit())) {
@@ -26,6 +28,25 @@ public class Evaluator {
                 return "FLUSH";
             }
         }
+
+        for(Card card : cardList){
+            if (tempMap2.containsKey(card.getRank())) {
+                Integer count = tempMap2.get(card.getRank() );
+                count = new Integer(count.intValue() + 1);
+                tempMap2.put(card.getRank(), count);
+            } else {
+                tempMap2.put(card.getRank(), new Integer(1));
+            }
+        }
+
+        for (Integer key : tempMap2.keySet()) {
+            if (tempMap2.get(key) == 4) {
+                return "FOURCARD";
+            }
+        }
+
         return "NOTHING";
     }
+
+
 }
