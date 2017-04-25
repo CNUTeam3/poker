@@ -1,5 +1,6 @@
 package com.edu.cnu.poker;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,7 +50,7 @@ public class Evaluator {
             }
         }
         int count = 0;
-        for (Card card : cardList){
+        for (Card card : cardList) {
             if (card.getRank() == 1)
                 count++;
             if (card.getRank() == 2)
@@ -68,6 +69,20 @@ public class Evaluator {
                 return Genealogy.FLUSH;
             }
         }
+        int index = 0;
+        int check = 0;
+        int[] arr = new int[5];
+        for (Card card : cardList)
+            arr[index++] = card.getRank();
+        Arrays.sort(arr);
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] + 1 == (arr[i + 1]))
+                check++;
+            else
+                break;
+        }
+        if (check == 4)
+            return Genealogy.STRAIGHT;
         for (Suit key : tempMap.keySet()) {
             count = 0;
             if (tempMap.get(key) != 5)
