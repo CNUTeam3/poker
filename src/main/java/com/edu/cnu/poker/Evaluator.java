@@ -50,7 +50,25 @@ public class Evaluator {
                     return Genealogy.ROALSTRAIGHTFLUSH;
             }
         }
-
+        for (Suit key : tempMap.keySet()){
+            count = 0;
+            if(tempMap.get(key) != 5)
+                break;
+            for (Card card : cardList){
+                if (card.getRank() == 1)
+                    count++;
+                if (card.getRank() == 2)
+                    count++;
+                if (card.getRank() == 3)
+                    count++;
+                if (card.getRank() == 4)
+                    count++;
+                if (card.getRank() == 5)
+                    count++;
+                if (count == 5)
+                    return Genealogy.BACKSTRAIGHTFLUSH;
+            }
+        }
         count = 0;
         for (Integer key : tempMap2.keySet()) {
             if (tempMap2.get(key) == 4) {
