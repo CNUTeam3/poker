@@ -30,9 +30,9 @@ public class Evaluator {
         }
 
 
-        for(Card card : cardList){
+        for (Card card : cardList) {
             if (tempMap2.containsKey(card.getRank())) {
-                Integer count = tempMap2.get(card.getRank() );
+                Integer count = tempMap2.get(card.getRank());
                 count = new Integer(count.intValue() + 1);
                 tempMap2.put(card.getRank(), count);
             } else {
@@ -43,15 +43,16 @@ public class Evaluator {
         for (Integer key : tempMap2.keySet()) {
             if (tempMap2.get(key) == 4) {
                 return "FOURCARD";
-            }
-            else if (tempMap2.get(key) == 3) {
+            } else if (tempMap2.get(key) == 3) {
                 return "TRIPPLE";
-            }
-            else if (tempMap2.get(key) == 2) {
+            } else if (tempMap2.get(key) == 2) {
+                for (Integer key2 : tempMap2.keySet()) {
+                    if (tempMap2.get(key2) == 2)
+                        return "TWOPAIR";
+                }
                 return "ONEPAIR";
             }
         }
-
         return "NOTHING";
     }
 
