@@ -22,6 +22,18 @@ public class Evaluator {
                 tempMap.put(card.getSuit(), new Integer(1));
             }
         }
+        
+        for (Card card : cardList) {
+            if (tempMap2.containsKey(card.getRank())) {
+                Integer count = tempMap2.get(card.getRank());
+                count = new Integer(count.intValue() + 1);
+                tempMap2.put(card.getRank(), count);
+            } else {
+                tempMap2.put(card.getRank(), new Integer(1));
+            }
+        }
+        
+        
         for (Suit key : tempMap.keySet()){
             int count = 0;
             if(tempMap.get(key) != 5)
@@ -41,6 +53,7 @@ public class Evaluator {
                     return "ROALSTRAIGHTFLUSH";
             }
         }
+        
         for (Suit key : tempMap.keySet()) {
             if (tempMap.get(key) == 5) {
                 return "FLUSH";
@@ -48,15 +61,7 @@ public class Evaluator {
         }
 
 
-        for (Card card : cardList) {
-            if (tempMap2.containsKey(card.getRank())) {
-                Integer count = tempMap2.get(card.getRank());
-                count = new Integer(count.intValue() + 1);
-                tempMap2.put(card.getRank(), count);
-            } else {
-                tempMap2.put(card.getRank(), new Integer(1));
-            }
-        }
+
         for (Suit key : tempMap.keySet()) {
             int count = 0;
             if (tempMap.get(key) != 5)
