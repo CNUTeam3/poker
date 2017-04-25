@@ -39,6 +39,25 @@ public class Evaluator {
                 tempMap2.put(card.getRank(), new Integer(1));
             }
         }
+        for (Suit key : tempMap.keySet()) {
+            int count = 0;
+            if (tempMap.get(key) != 5)
+                for (Card card : cardList) {
+                    if (card.getRank() == 1)
+                        count++;
+                    if (card.getRank() == 10)
+                        count++;
+                    if (card.getRank() == 11)
+                        count++;
+                    if (card.getRank() == 12)
+                        count++;
+                    if (card.getRank() == 13)
+                        count++;
+                    if (count == 5)
+                        return "MOUNTAIN";
+                }
+        }
+
         int count = 0;
         for (Integer key : tempMap2.keySet()) {
             if (tempMap2.get(key) == 4) {
