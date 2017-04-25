@@ -67,6 +67,11 @@ public class EvaluatorTest {
     public void RANK가_동일한수가3개_동일한수가2개이면_풀하우스() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
+                new Card(1, Suit.CLUBS),
+                new Card(1, Suit.DIAMONDS),
+                new Card(1, Suit.CLUBS),
+                new Card(2, Suit.SPADES),
+                new Card(2, Suit.HEARTS)
         );
         Genealogy result = evaluator.evaluate(cardList);
         assertThat(result, is(Genealogy.FULLHOUSE));
