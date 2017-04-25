@@ -50,15 +50,6 @@ public class Evaluator {
                     return Genealogy.ROALSTRAIGHTFLUSH;
             }
         }
-        count = 0;
-        for (Integer integer : tempMap2.keySet()) {
-            if (tempMap2.get(integer) == 3)
-                count++;
-            else if (tempMap2.get(integer) == 2)
-                count++;
-            if (count== 2)
-                return Genealogy.FULLHOUSE;
-        }
 
         count = 0;
         for (Integer key : tempMap2.keySet()) {
@@ -129,8 +120,6 @@ public class Evaluator {
                         return Genealogy.MOUNTAIN;
                 }
         }
-
-
 
 
         return Genealogy.NOTTING;
