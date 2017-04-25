@@ -44,11 +44,6 @@ public class EvaluatorTest {
     public void 같은_SUIT의_5개의_연속된_숫자면_스트레이트플러쉬() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
-                new Card(4, Suit.CLUBS),
-                new Card(5, Suit.CLUBS),
-                new Card(6, Suit.CLUBS),
-                new Card(7, Suit.CLUBS),
-                new Card(8, Suit.CLUBS)
         );
         Genealogy result = evaluator.evaluate(cardList);
         assertThat(result, is(Genealogy.STRAIGHTFLUSH));
@@ -72,11 +67,6 @@ public class EvaluatorTest {
     public void RANK가_동일한수가3개_동일한수가2개이면_풀하우스() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
-                new Card(1, Suit.CLUBS),
-                new Card(1, Suit.DIAMONDS),
-                new Card(1, Suit.CLUBS),
-                new Card(2, Suit.SPADES),
-                new Card(2, Suit.HEARTS)
         );
         Genealogy result = evaluator.evaluate(cardList);
         assertThat(result, is(Genealogy.FULLHOUSE));
@@ -114,11 +104,6 @@ public class EvaluatorTest {
     public void 카드가_A부터5까지면_백스트레이트() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
-                new Card(1, Suit.CLUBS),
-                new Card(2, Suit.SPADES),
-                new Card(3, Suit.HEARTS),
-                new Card(4, Suit.CLUBS),
-                new Card(5, Suit.DIAMONDS)
         );
         Genealogy result = evaluator.evaluate(cardList);
         assertThat(result, is(Genealogy.BACKSTRAIGHT));
@@ -129,11 +114,6 @@ public class EvaluatorTest {
     public void RANK가_연달아_3장의_카드가_존재하면_스트레이트() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
-                new Card(4, Suit.SPADES),
-                new Card(5, Suit.CLUBS),
-                new Card(6, Suit.SPADES),
-                new Card(7, Suit.HEARTS),
-                new Card(8, Suit.SPADES)
         );
         Genealogy result = evaluator.evaluate(cardList);
         assertThat(result, is(Genealogy.STRAIGHT));
