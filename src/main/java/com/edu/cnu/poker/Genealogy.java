@@ -3,7 +3,7 @@ package com.edu.cnu.poker;
 /**
  * Created by user on 2017-04-25.
  */
-public enum  PokerPower {
+public enum  Genealogy {
     ROALSTRAIGHTFLUSH,
     BACKSTRAIGHTFLUSH,
     STRAIGHTFLUSH,
@@ -16,7 +16,8 @@ public enum  PokerPower {
     TRIPLE,
     TWOPAIR,
     ONEPAIR,
-    NOPAIR;
+    NOPAIR,
+    NOTTING;
 
 
 }
