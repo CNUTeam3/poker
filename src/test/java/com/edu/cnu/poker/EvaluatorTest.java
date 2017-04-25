@@ -31,7 +31,6 @@ public class EvaluatorTest {
     public void RANK가_동일한수가3개_동일한수가2개이면_FULLHOUSE이다(){
         Evaluator evaluator = new Evaluator();
        }
-    }
 
     @Test
     public void RANK가_같은_카드가_2쌍이면_투페어다() {
@@ -72,7 +71,7 @@ public class EvaluatorTest {
         String result = evaluator.evaluate(cardList);
         assertThat(result, is("STRAIGHT"));
     }
-}
+
     @Test
     public void RANK가_4개가동일하면_포카드다() {
         Evaluator evaluator = new Evaluator();
