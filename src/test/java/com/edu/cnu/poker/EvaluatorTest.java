@@ -53,7 +53,7 @@ public class EvaluatorTest {
     }
 
     @Test
-    public void RANK가_같은_카드가_3장이면_트리플이다() {
+    public void RANK가_연달아_3장의_카드가_존재하면_스트레이트이다() {
         Evaluator evaluator = new Evaluator();
         int rank = 1;
         List<Card> cardList = Arrays.asList(
