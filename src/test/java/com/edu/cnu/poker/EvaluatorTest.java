@@ -123,34 +123,4 @@ public class EvaluatorTest {
         String result = evaluator.evaluate(cardList);
         assertThat(result, is("ONEPAIR"));
     }
-
 }
-
-    @Test
-    public void RANK가_동일한수가_3개_동일한수가_2개이면_FULLHOUSE이다(){
-        Evaluator evaluator = new Evaluator();
-        List<Card> cardList = Arrays.asList(
-                new Card(4,Suit.CLUBS),
-                new Card(4,Suit.DIAMONDS),
-                new Card(4,Suit.HEARTS),
-                new Card(6,Suit.HEARTS),
-                new Card(6,Suit.SPADES)
-        );
-        String result = evaluator.evaluate(cardList);
-        assertThat(result, is("FULLHOUSE"));
-    }
-
-    @Test
-    public void SUIT가_같은_AKQJ10은_로열스트레이트플러쉬이다(){
-        Evaluator evaluator = new Evaluator();
-        List<Card> cardList = Arrays.asList(
-                new Card(1,Suit.CLUBS),
-                new Card(10,Suit.CLUBS),
-                new Card(11,Suit.CLUBS),
-                new Card(12,Suit.CLUBS),
-                new Card(13,Suit.CLUBS)
-        );
-        String result = evaluator.evaluate(cardList);
-        assertThat(result, is("ROALSTRAIGHTFLUSH"));
-    }
-  }
