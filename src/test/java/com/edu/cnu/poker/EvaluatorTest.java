@@ -44,7 +44,7 @@ public class EvaluatorTest {
         List<Card> cardList = Arrays.asList(
                 new Card(1,Suit.SPADES),
                 new Card(1,Suit.CLUBS),
-                new Card(1,Suit.DIAMONDS)
+                new Card(1,Suit.HEARTS)
         );
         String result = evaluator.evaluate(cardList);
         assertThat(result, is("TRIPPLE"));
