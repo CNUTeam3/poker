@@ -51,13 +51,11 @@ public class Evaluator {
             }
         }
 
-
-
-        for (Suit key : tempMap.keySet()){
+        for (Suit key : tempMap.keySet()) {
             count = 0;
-            if(tempMap.get(key) != 5)
+            if (tempMap.get(key) != 5)
                 break;
-            for (Card card : cardList){
+            for (Card card : cardList) {
                 if (card.getRank() == 1)
                     count++;
                 if (card.getRank() == 2)
@@ -72,17 +70,17 @@ public class Evaluator {
                     return Genealogy.BACKSTRAIGHTFLUSH;
             }
         }
-        for (Suit key : tempMap.keySet()){
+        for (Suit key : tempMap.keySet()) {
             int index = 0;
             int check = 0;
             int[] arr = new int[5];
-            if(tempMap.get(key) != 5)
+            if (tempMap.get(key) != 5)
                 break;
             for (Card card : cardList)
                 arr[index++] = card.getRank();
             Arrays.sort(arr);
-            for (int i=0; i<arr.length - 1;i++){
-                if (arr[i]+1 == (arr[i+1]))
+            for (int i = 0; i < arr.length - 1; i++) {
+                if (arr[i] + 1 == (arr[i + 1]))
                     check++;
                 else
                     break;
@@ -148,22 +146,12 @@ public class Evaluator {
             count = 0;
             if (tempMap.get(key) != 5)
                 for (Card card : cardList) {
-                    if (card.getRank() == 1)
-                        count++;
-                    if (card.getRank() == 10)
-                        count++;
-                    if (card.getRank() == 11)
-                        count++;
-                    if (card.getRank() == 12)
-                        count++;
-                    if (card.getRank() == 13)
+                    if (card.getRank() == 1 || card.getRank() == 10 || card.getRank() == 11 || card.getRank() == 12 || card.getRank() == 13)
                         count++;
                     if (count == 5)
                         return Genealogy.MOUNTAIN;
                 }
         }
-
-
         return Genealogy.NOTTING;
     }
 }
