@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c848046a-aeb5-42e1-aacc-677cbf435286" name="Default" comment="">
+<<<<<<< HEAD
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+=======
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
@@ -11,6 +14,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/edu/cnu/poker/Evaluator.java" afterPath="$PROJECT_DIR$/src/main/java/com/edu/cnu/poker/Evaluator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/edu/cnu/poker/EvaluatorTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/edu/cnu/poker/EvaluatorTest.java" />
+>>>>>>> master
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -88,9 +92,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
               <caret line="31" column="37" lean-forward="false" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+<<<<<<< HEAD
+              <folding />
+=======
               <folding>
                 <marker date="1493116473204" expanded="true" signature="1580:1586" ph="{...}" />
               </folding>
+>>>>>>> master
             </state>
           </provider>
         </entry>
@@ -697,7 +705,11 @@
       <updated>1493100514243</updated>
       <workItem from="1493100517950" duration="80000" />
       <workItem from="1493111519401" duration="756000" />
+<<<<<<< HEAD
+      <workItem from="1493112307481" duration="2960000" />
+=======
       <workItem from="1493112307481" duration="2590000" />
+>>>>>>> master
     </task>
     <servers />
   </component>
@@ -707,7 +719,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="3796000" />
+=======
     <option name="totallyTimeSpent" value="3426000" />
+>>>>>>> master
   </component>
   <component name="ToolWindowManager">
     <frame x="428" y="0" width="1492" height="1032" extended-state="1" />
@@ -840,9 +856,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
           <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+<<<<<<< HEAD
+          <folding />
+=======
           <folding>
             <marker date="1493116473204" expanded="true" signature="1580:1586" ph="{...}" />
           </folding>
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -882,9 +902,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+<<<<<<< HEAD
+          <folding />
+=======
           <folding>
             <marker date="1493116473204" expanded="true" signature="1580:1586" ph="{...}" />
           </folding>
+>>>>>>> master
         </state>
       </provider>
     </entry>
@@ -967,9 +991,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="31" column="37" lean-forward="false" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+<<<<<<< HEAD
+          <folding />
+=======
           <folding>
             <marker date="1493116473204" expanded="true" signature="1580:1586" ph="{...}" />
           </folding>
+>>>>>>> master
         </state>
       </provider>
     </entry>
