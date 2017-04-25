@@ -26,4 +26,9 @@ public class EvaluatorTest {
         String result = evaluator.evaluate(cardList);
         assertThat(result, is("FLUSH"));
     }
+
+    @Test
+    public void RANK가_동일한수가3개_동일한수가2개이면_FULLHOUSE이다(){
+        
+    }
 }
