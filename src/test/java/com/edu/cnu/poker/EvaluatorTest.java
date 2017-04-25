@@ -13,7 +13,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
  */
 public class EvaluatorTest {
     @Test
-    public void SUIT가_같은_AKQJ10은_로열스트레이트플러쉬이다() {
+    public void SUIT가_같은_AKQJ10은_로열스트레이트플러쉬() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
                 new Card(1, Suit.CLUBS),
@@ -27,13 +27,21 @@ public class EvaluatorTest {
     }
 
     @Test
-    public void 백스트레이트플러쉬() {
-
+    public void 같은_SUIT의_CARD가_A부터5까지면_백스트레이트플러쉬() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+        );
+        String result = evaluator.evaluate(cardList);
+        assertThat(result, is("FOURCARD"));
     }
 
     @Test
-    public void 스트레이트플러쉬() {
-
+    public void 같은_SUIT의_5개의_연속된_숫자면_스트레이트플러쉬() {
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+        );
+        String result = evaluator.evaluate(cardList);
+        assertThat(result, is("FOURCARD"));
     }
 
     @Test
@@ -85,7 +93,11 @@ public class EvaluatorTest {
 
     @Test
     public void 백스트레이트() {
-
+        Evaluator evaluator = new Evaluator();
+        List<Card> cardList = Arrays.asList(
+        );
+        String result = evaluator.evaluate(cardList);
+        assertThat(result, is("FOURCARD"));
     }
 
 
