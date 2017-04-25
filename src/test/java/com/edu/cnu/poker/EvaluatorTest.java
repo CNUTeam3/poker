@@ -47,6 +47,6 @@ public class EvaluatorTest {
                 new Card(1,Suit.DIAMONDS)
         );
         String result = evaluator.evaluate(cardList);
-        assertThat(result, is("TWOPAIR"));
+        assertThat(result, is("TRIPPLE"));
     }
 }
