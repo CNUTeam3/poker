@@ -96,4 +96,9 @@ public class EvaluatorTest {
         String result = evaluator.evaluate(cardList);
         assertThat(result, is("ONEPAIR"));
     }
+
+    @Test
+    public void RANK가_동일한수가_3개_동일한수가_2개이면_FULLHOUSE이다(){
+        
+    }
   }
