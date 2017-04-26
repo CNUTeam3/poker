@@ -47,13 +47,16 @@ public class Evaluator {
             count = 0;
             if (tempMap.get(key) != 5)
                 break;
-            for (Card card : cardList) {
-                if (card.getRank() == 1 || card.getRank() == 2 || card.getRank() == 3 || card.getRank() == 4 || card.getRank() == 5)
-                    count++;
-                if (count == 5)
-                    return Genealogy.BACKSTRAIGHTFLUSH;
+            else if (tempMap.get(key) == 5) {
+                for (Card card : cardList) {
+                    if (card.getRank() == 1 || card.getRank() == 2 || card.getRank() == 3 || card.getRank() == 4 || card.getRank() == 5)
+                        count++;
+                    if (count == 5)
+                        return Genealogy.BACKSTRAIGHTFLUSH;
+                }
             }
         }
+
         for (Suit key : tempMap.keySet()) {
             int index = 0;
             int check = 0;
@@ -90,6 +93,13 @@ public class Evaluator {
         else if (count == 1)
             return Genealogy.ONEPAIR;
 
+        count = 0;
+        for (Card card : cardList) {
+            if (card.getRank() == 1 || card.getRank() == 2 || card.getRank() == 3 || card.getRank() == 4 || card.getRank() == 5)
+                count++;
+            if (count == 5)
+                return Genealogy.BACKSTRAIGHT;
+        }
         count = 0;
         for (Card card : cardList) {
             if (card.getRank() == 1 || card.getRank() == 2 || card.getRank() == 3 || card.getRank() == 4 || card.getRank() == 5)
