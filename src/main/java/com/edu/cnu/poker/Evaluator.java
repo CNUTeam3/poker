@@ -36,15 +36,7 @@ public class Evaluator {
             if (tempMap.get(key) != 5)
                 break;
             for (Card card : cardList) {
-                if (card.getRank() == 1)
-                    count++;
-                if (card.getRank() == 10)
-                    count++;
-                if (card.getRank() == 11)
-                    count++;
-                if (card.getRank() == 12)
-                    count++;
-                if (card.getRank() == 13)
+                if (card.getRank() == 1 || card.getRank() == 10 || card.getRank() == 11 || card.getRank() == 12 || card.getRank() == 13)
                     count++;
                 if (count == 5)
                     return Genealogy.ROALSTRAIGHTFLUSH;
