@@ -73,18 +73,17 @@ public class Evaluator {
                 return Genealogy.STRAIGHTFLUSH;
         }
         count = 0;
-        for (Integer key : tempMap2.keySet()) {
-            if (tempMap2.get(key) == 4) {
+        for (Integer firstKey : tempMap2.keySet()) {
+            if (tempMap2.get(firstKey) == 4)
                 return Genealogy.FOUROFAKIND;
-            } else if (tempMap2.get(key) == 3) {
-                for (Integer integer : tempMap2.keySet()) {
-                    if (tempMap2.get(integer) == 2)
+            else if (tempMap2.get(firstKey) == 3) {
+                for (Integer secondKey : tempMap2.keySet()) {
+                    if (tempMap2.get(secondKey) == 2)
                         return Genealogy.FULLHOUSE;
                 }
                 return Genealogy.TRIPLE;
-            } else if (tempMap2.get(key) == 2) {
+            } else if (tempMap2.get(firstKey) == 2)
                 count++;
-            }
         }
         if (count == 2)
             return Genealogy.TWOPAIR;
