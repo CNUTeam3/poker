@@ -100,23 +100,22 @@ public class Evaluator {
         }
 
         for (Suit key : tempMap.keySet()) {
-            if (tempMap.get(key) == 5) {
+            if (tempMap.get(key) == 5)
                 return Genealogy.FLUSH;
-            }
         }
         int index = 0;
-        int check = 0;
+        count = 0;
         int[] arr = new int[5];
         for (Card card : cardList)
             arr[index++] = card.getRank();
         Arrays.sort(arr);
         for (int i = 0; i < arr.length - 1; i++) {
             if (arr[i] + 1 == (arr[i + 1]))
-                check++;
+                count++;
             else
                 break;
         }
-        if (check == 4)
+        if (count == 4)
             return Genealogy.STRAIGHT;
         for (Suit key : tempMap.keySet()) {
             count = 0;
