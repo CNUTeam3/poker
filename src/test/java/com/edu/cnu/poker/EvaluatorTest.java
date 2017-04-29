@@ -145,7 +145,9 @@ public class EvaluatorTest {
         List<Card> cardList = Arrays.asList(
                 new Card(1, Suit.SPADES),
                 new Card(1, Suit.CLUBS),
-                new Card(1, Suit.HEARTS)
+                new Card(1, Suit.HEARTS),
+                new Card(5, Suit.SPADES),
+                new Card(8, Suit.DIAMONDS)
         );
         Genealogy result = evaluator.evaluate(cardList);
         assertThat(result, is(Genealogy.TRIPLE));
@@ -158,7 +160,8 @@ public class EvaluatorTest {
                 new Card(1, Suit.SPADES),
                 new Card(1, Suit.CLUBS),
                 new Card(2, Suit.DIAMONDS),
-                new Card(2, Suit.HEARTS)
+                new Card(2, Suit.HEARTS),
+                new Card(7, Suit.CLUBS)
         );
         Genealogy result = evaluator.evaluate(cardList);
         assertThat(result, is(Genealogy.TWOPAIR));
@@ -168,8 +171,11 @@ public class EvaluatorTest {
     public void RANK_2개가_동일하면_원페어() {
         Evaluator evaluator = new Evaluator();
         List<Card> cardList = Arrays.asList(
-                new Card(3, Suit.HEARTS),
-                new Card(3, Suit.DIAMONDS)
+                new Card(1, Suit.HEARTS),
+                new Card(1, Suit.DIAMONDS),
+                new Card(3, Suit.SPADES),
+                new Card(5, Suit.DIAMONDS),
+                new Card(7, Suit.CLUBS)
         );
         Genealogy result = evaluator.evaluate(cardList);
         assertThat(result, is(Genealogy.ONEPAIR));

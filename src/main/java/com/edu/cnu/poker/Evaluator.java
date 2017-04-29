@@ -36,15 +36,7 @@ public class Evaluator {
             if (tempMap.get(key) != 5)
                 break;
             for (Card card : cardList) {
-                if (card.getRank() == 1)
-                    count++;
-                if (card.getRank() == 10)
-                    count++;
-                if (card.getRank() == 11)
-                    count++;
-                if (card.getRank() == 12)
-                    count++;
-                if (card.getRank() == 13)
+                if (card.getRank() == 1 || card.getRank() == 10 || card.getRank() == 11 || card.getRank() == 12 || card.getRank() == 13)
                     count++;
                 if (count == 5)
                     return Genealogy.ROALSTRAIGHTFLUSH;
@@ -55,21 +47,16 @@ public class Evaluator {
             count = 0;
             if (tempMap.get(key) != 5)
                 break;
-            for (Card card : cardList) {
-                if (card.getRank() == 1)
-                    count++;
-                if (card.getRank() == 2)
-                    count++;
-                if (card.getRank() == 3)
-                    count++;
-                if (card.getRank() == 4)
-                    count++;
-                if (card.getRank() == 5)
-                    count++;
-                if (count == 5)
-                    return Genealogy.BACKSTRAIGHTFLUSH;
+            else if (tempMap.get(key) == 5) {
+                for (Card card : cardList) {
+                    if (card.getRank() == 1 || card.getRank() == 2 || card.getRank() == 3 || card.getRank() == 4 || card.getRank() == 5)
+                        count++;
+                    if (count == 5)
+                        return Genealogy.BACKSTRAIGHTFLUSH;
+                }
             }
         }
+
         for (Suit key : tempMap.keySet()) {
             int index = 0;
             int check = 0;
@@ -89,18 +76,17 @@ public class Evaluator {
                 return Genealogy.STRAIGHTFLUSH;
         }
         count = 0;
-        for (Integer key : tempMap2.keySet()) {
-            if (tempMap2.get(key) == 4) {
+        for (Integer firstKey : tempMap2.keySet()) {
+            if (tempMap2.get(firstKey) == 4)
                 return Genealogy.FOUROFAKIND;
-            } else if (tempMap2.get(key) == 3) {
-                for (Integer integer : tempMap2.keySet()) {
-                    if (tempMap2.get(integer) == 2)
+            else if (tempMap2.get(firstKey) == 3) {
+                for (Integer secondKey : tempMap2.keySet()) {
+                    if (tempMap2.get(secondKey) == 2)
                         return Genealogy.FULLHOUSE;
                 }
                 return Genealogy.TRIPLE;
-            } else if (tempMap2.get(key) == 2) {
+            } else if (tempMap2.get(firstKey) == 2)
                 count++;
-            }
         }
         if (count == 2)
             return Genealogy.TWOPAIR;
@@ -109,38 +95,36 @@ public class Evaluator {
 
         count = 0;
         for (Card card : cardList) {
-            if (card.getRank() == 1)
+            if (card.getRank() == 1 || card.getRank() == 2 || card.getRank() == 3 || card.getRank() == 4 || card.getRank() == 5)
                 count++;
-            if (card.getRank() == 2)
-                count++;
-            if (card.getRank() == 3)
-                count++;
-            if (card.getRank() == 4)
-                count++;
-            if (card.getRank() == 5)
+            if (count == 5)
+                return Genealogy.BACKSTRAIGHT;
+        }
+        count = 0;
+        for (Card card : cardList) {
+            if (card.getRank() == 1 || card.getRank() == 2 || card.getRank() == 3 || card.getRank() == 4 || card.getRank() == 5)
                 count++;
             if (count == 5)
                 return Genealogy.BACKSTRAIGHT;
         }
 
         for (Suit key : tempMap.keySet()) {
-            if (tempMap.get(key) == 5) {
+            if (tempMap.get(key) == 5)
                 return Genealogy.FLUSH;
-            }
         }
         int index = 0;
-        int check = 0;
+        count = 0;
         int[] arr = new int[5];
         for (Card card : cardList)
             arr[index++] = card.getRank();
         Arrays.sort(arr);
         for (int i = 0; i < arr.length - 1; i++) {
             if (arr[i] + 1 == (arr[i + 1]))
-                check++;
+                count++;
             else
                 break;
         }
-        if (check == 4)
+        if (count == 4)
             return Genealogy.STRAIGHT;
         for (Suit key : tempMap.keySet()) {
             count = 0;
